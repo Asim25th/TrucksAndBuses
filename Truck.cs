@@ -1,4 +1,4 @@
-﻿namespace TrucksAndBuses
+namespace TrucksAndBuses
 {
     class Truck : Auto
     {
@@ -21,16 +21,7 @@
                 Console.Write("ОШИБКА: Введено некорректное значение. Попробуйте ещё раз\nВведите вес груза (до 5000 кг): ");
                 weight = Convert.ToDouble(Console.ReadLine());
             }
-        }
 
-        protected override void Output()
-        {
-            Console.Write($"\nВес: {Math.Round(weight, 3)} кг");
-            base.Output();
-        }
-
-        protected override void Move()
-        {
             if (weight >= 4000)
             {
                 speed = Math.Round(speed / 2, 2);
@@ -39,6 +30,7 @@
             {
                 speed = Math.Round(speed / 1.5, 2);
             }
+
             if (speed <= 40)
             {
                 consumption = Math.Round(consumption * 2, 2);
@@ -47,7 +39,34 @@
             {
                 consumption = Math.Round(consumption * 1.5, 2);
             }
-            base.Move();
         }
+
+        protected override void Output()
+        {
+            Console.Write($"\nВес: {Math.Round(weight, 3)} кг");
+            base.Output();
+        }
+
+        //protected override void Move()
+        //{
+        //    if (weight >= 4000)
+        //    {
+        //        speed = Math.Round(speed / 2, 2);
+        //    }
+        //    else if (weight >= 2500)
+        //    {
+        //        speed = Math.Round(speed / 1.5, 2);
+        //    }
+
+        //    if (speed <= 40)
+        //    {
+        //        consumption = Math.Round(consumption * 2, 2);
+        //    }
+        //    else if (speed > 90)
+        //    {
+        //        consumption = Math.Round(consumption * 1.5, 2);
+        //    }
+        //    base.Move();
+        //}
     }
 }
